@@ -10,7 +10,7 @@ ini_set('display_startup_errors', TRUE);
 
 session_start();
 
-### Если роутера нет - это главная страница
+### router
 if (empty($_GET['route']) || $_GET['route'] == 'home') {
 
     include_once "chapters/main.php";
