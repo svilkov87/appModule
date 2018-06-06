@@ -10,43 +10,27 @@ body {
   }
 }
 
-.b-slider {
+.b-container {
+  width: 960px;
+  margin: 0 auto;
   padding-top: 150px;
-  .b-slider__wrapper {
-    width: 450px;
-    height: 200px;
-    margin: 0 auto;
-    overflow: hidden;
-    border: $slide_border;
+  .b-ui-wrapper {
     position: relative;
-    .b-slider-list{
-      width: 1000%;
-      height: 200px;
-      background: $slide_bg;
-      @include transition($sec_default);
-      &:hover {
-        background: #000;
+    margin-bottom: 30px;
+    padding: 0;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    .b-ui-viewport {
+      overflow: hidden;
+      ul {
+        li {
+          img {
+            width: inherit;
+          }
+        }
       }
-      .b-slider-list__items{
-        float: left;
-        width: 450px;
-        height: 200px;
-        display: block;
-        background: $slides_bg;
-      }
-    }
-    .b-arrow{
-      .b-arrow__left{
-        position: absolute;
-        top: 50%;
-        left: 15px;
-        @include translY(-10px);
-      }
-      .b-arrow__right{
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        @include translY(-10px);
+      .b-ui_horizontal {
+        display: flex;
       }
     }
   }

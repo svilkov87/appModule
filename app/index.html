@@ -8,23 +8,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/favicon_fd.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-	<link rel="stylesheet" href="libs/font-awesome-4.2.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/libs.min.css">
-    <script src="libs/main-min.js"></script>
 </head>
 <body>
-<div class="b-slider">
-    <div class="b-slider__wrapper">
-        <ul class="b-slider-list">
-            <li class="b-slider-list__items">slide_1</li>
-            <li class="b-slider-list__items">slide_2</li>
-        </ul>
-        <div class="b-arrow">
-            <span class="b-arrow__left"><</span>
-            <span class="b-arrow__right">></span>
-        </div>
-    </div>
+<div class="b-container">
+    <ul id="ui_slider">
+        <li>
+            <img src="http://placehold.it/450x150/ccc/ffffff" alt="">
+        </li>
+        <li>
+            <img src="http://placehold.it/450x150/9aafc2/ffffff" alt="">
+        </li>
+        <li>
+            <img src="http://placehold.it/450x150/ed8b2f/ffffff" alt="">
+        </li>
+    </ul>
 </div>
+<script>
+    var UISlider = {
+        sliderId : 'ui_slider',
+        arrows   : true,
+        auto     : true,
+        items    : true,
+        type     : 'horizontal' //
+    };
+</script>
+<script src="libs/main-min.js"></script>
 </body>
 </html>
