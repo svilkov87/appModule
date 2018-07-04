@@ -13,53 +13,84 @@ body {
   padding-top: 100px;
 }
 .b-ui-wrapper {
-  position: relative;
   margin-bottom: 30px;
   padding: 0;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   .b-ui-viewport {
+    position: relative;
     overflow: hidden;
     ul {
       display: flex;
+      transition: all .7s ease-in-out;
+      // width: 3215%;
       li {
-        // width: 100%;
+        width: 100%;
+        flex-shrink: 0;
         img {
-          width: inherit;
+          width: 100%;
         }
       }
     }
-    .b-ui_horizontal {
-      display: flex;
+    .b-ui-pager {
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: #000;
+      border-radius: 50%;
+    }
+    .b-ui-prev {
+      position: absolute;
+      top: 50%;
+      margin-top: -16px;
+      outline: 0;
+      width: 32px;
+      height: 32px;
+      text-indent: -9999px;
+      z-index: 9999;
+      left: 15px;
+      border-left: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      transform: rotate(45deg);
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+      &:hover {
+        opacity: .4;
+      }
+    }
+    .b-ui-next {
+      position: absolute;
+      top: 50%;
+      margin-top: -16px;
+      outline: 0;
+      width: 32px;
+      height: 32px;
+      text-indent: -9999px;
+      z-index: 9999;
+      right: 15px;
+      border-right: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      transform: rotate(-45deg);
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+      &:hover {
+        opacity: .4;
+      }
     }
   }
-  .b-ui-prev {
-    position: absolute;
-    top: 50%;
-    margin-top: -16px;
-    outline: 0;
-    width: 32px;
-    height: 32px;
-    text-indent: -9999px;
-    z-index: 9999;
-    left: 10px;
-    border-left: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    transform: rotate(45deg);
-  }
-  .b-ui-next {
-    position: absolute;
-    top: 50%;
-    margin-top: -16px;
-    outline: 0;
-    width: 32px;
-    height: 32px;
-    text-indent: -9999px;
-    z-index: 9999;
-    right: 10px;
-    border-right: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    transform: rotate(-45deg);
+  .b-ui-pager-wrapper {
+    padding-top: 20px;
+    display: flex;
+    .b-ui-pager {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border: 2px solid;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
   }
 }
 
