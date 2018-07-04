@@ -9,29 +9,57 @@ body {
     text-decoration: none !important;
   }
 }
-
-.b-container {
-  width: 960px;
-  margin: 0 auto;
-  padding-top: 150px;
-  .b-ui-wrapper {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 0;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    .b-ui-viewport {
-      overflow: hidden;
-      ul {
-        li {
-          img {
-            width: inherit;
-          }
+.main-block {
+  padding-top: 100px;
+}
+.b-ui-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 0;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  .b-ui-viewport {
+    overflow: hidden;
+    ul {
+      display: flex;
+      li {
+        // width: 100%;
+        img {
+          width: inherit;
         }
       }
-      .b-ui_horizontal {
-        display: flex;
-      }
+    }
+    .b-ui_horizontal {
+      display: flex;
     }
   }
+  .b-ui-prev {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    z-index: 9999;
+    left: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+  .b-ui-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    outline: 0;
+    width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    z-index: 9999;
+    right: 10px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(-45deg);
+  }
 }
+
