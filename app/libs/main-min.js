@@ -56,15 +56,47 @@ function settings( element ) {
 
     } );
 
+
+    let nextClickcount = 0;
+    let prevClickcount = 0;
+    let arrowClickCount = 0;
+    let positionArray = [];
+
     nextArrow.addEventListener('click', function () {
 
-        slider.style.transform = 'translate3d(' + '-' + sliderWidthArray[0] + 'px, 0, 0)';
+        arrowClickCount++;
+
+        // if (arrowClickCount >= sliderImg.length) {
+        //     return false;
+        // } else {
+            positionArray.push(sliderWidthArray[0] * arrowClickCount)
+            positionArray = [positionArray.pop()];
+            slider.style.transform = 'translate3d(' + '-' + positionArray[0] + 'px, 0, 0)';
+        // }
+
+        // console.log(arrowClickCount);
+        // console.log(positionArray);
 
     } );
 
     prevArrow.addEventListener('click', function () {
 
-        slider.style.transform = 'translate3d(' + sliderWidthArray[0] / 2 + 'px, 0, 0)';
+        arrowClickCount--;
+
+        // if (arrowClickCount >= sliderImg.length) {
+        //     return false;
+        // } else {
+            let slideLeft = (sliderWidthArray[0] * arrowClickCount);
+            slider.style.transform = 'translate3d(' + '-' + slideLeft + 'px, 0, 0)';
+        // }
+
+        // let longer = positionArray
+
+        console.log(arrowClickCount);
+        console.log(slideLeft);
+
+        // slider.style.transform = 'translate3d(' + sliderWidthArray[0] + 'px, 0, 0)';
+        // slider.style.transform = 'translate3d(' + positionArray[0] + '-930' + 'px, 0, 0)';
 
     } );
 
