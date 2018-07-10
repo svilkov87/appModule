@@ -12,85 +12,158 @@ body {
 .main-block {
   padding-top: 100px;
 }
-.b-ui-wrapper {
-  margin-bottom: 30px;
-  padding: 0;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  .b-ui-viewport {
+.b-phone {
+  width: 375px;
+  height: 750px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 50px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+  &__camera {
+    background-color: $items_bg;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-bottom: 10px;
+  }
+  &__speaker {
+    background-color: $items_bg;
+    height: 4px;
+    width: 70px;
+    border-radius: 2px;
+  }
+  &__footer {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+  &__footer-button {
+    width: 55px;
+    height: 55px;
+    background-color: #F0F0F0;
+    border-radius: 50%;
     position: relative;
-    overflow: hidden;
-    ul {
-      display: flex;
-      transition: all .7s ease-in-out;
-      // width: 3215%;
-      li {
-        width: 100%;
-        flex-shrink: 0;
-        img {
-          width: 100%;
-        }
-      }
+    cursor: pointer;
+    &:hover {
+      background: #ccc;
     }
-    .b-ui-pager {
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      background: #000;
-      border-radius: 50%;
+    &:hover::after {
+      border: 2px solid #000;
     }
-    .b-ui-prev {
+    &:after {
+      content: '';
+      width: 22px;
+      height: 22px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      border: 2px solid #d7d7d7;
+      -webkit-border-radius: 30%;
+      border-radius: 30%;
       position: absolute;
       top: 50%;
-      margin-top: -16px;
-      outline: 0;
-      width: 32px;
-      height: 32px;
-      text-indent: -9999px;
-      z-index: 9999;
-      left: 15px;
-      border-left: 3px solid #fff;
-      border-bottom: 3px solid #fff;
-      transform: rotate(45deg);
-      cursor: pointer;
-      transition: all .2s ease-in-out;
-      &:hover {
-        opacity: .4;
-      }
-    }
-    .b-ui-next {
-      position: absolute;
-      top: 50%;
-      margin-top: -16px;
-      outline: 0;
-      width: 32px;
-      height: 32px;
-      text-indent: -9999px;
-      z-index: 9999;
-      right: 15px;
-      border-right: 3px solid #fff;
-      border-bottom: 3px solid #fff;
-      transform: rotate(-45deg);
-      cursor: pointer;
-      transition: all .2s ease-in-out;
-      &:hover {
-        opacity: .4;
-      }
+      left: 50%;
+      margin-top: -11px;
+      margin-left: -11px;
     }
   }
-  .b-ui-pager-wrapper {
-    padding-top: 20px;
-    display: flex;
-    .b-ui-pager {
-      width: 10px;
-      height: 10px;
+
+  .b-phone-screen {
+    height: 560px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    position: relative;
+    &__nav {
+      width: 100%;
+      height: 60px;
       background: #fff;
-      border: 2px solid;
-      border-radius: 50%;
-      margin: 0 5px;
+      position: absolute;
+      top: 0;
+      z-index: 9;
+      right: 0;
+      left: 0;
+      border-bottom: 1px solid #bbb;
+    }
+    &__cart{
+      position: absolute;
+      right: 65px;
+      line-height: 60px;
       cursor: pointer;
+    }
+    &__touch-menu {
+      position: absolute;
+      right: 30px;
+      line-height: 60px;
+      cursor: pointer;
+    }
+    &__menu {
+      position: absolute;
+      top: 60px;
+      background: #fff;
+      min-width: 255px;
+      height: 498px;
+      right: -100%;
+      transition: $sec_default;
+      z-index: 999;
+    }
+    &__menu_active {
+      right: 0;
+      // box-shadow: -3px 4px 14px 0px rgba(50, 50, 50, 0.19);
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+    &__list-item {
+      padding: 25px 30px 25px 0;
+      text-align: right;
+      cursor: pointer;
+    }
+    &__content {
+      height: 558px;
+      // height: 498px;
+      // overflow: auto;
+      overflow: overlay;
+      padding-top: 60px;
+      // margin-top: 60px;
+      padding-left: 15px;
+      padding-right: 15px;
+      transition: $sec_default;
+    }
+    &__content_active {
+      background: #ccc;
+      height: 100%;
+      filter: brightness(60%);
+    }
+    &__section {
+      padding-top: 15px;
+    }
+    &__article {
+      padding-top: 15px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__product {
+      outline: 1px solid #ccc;
+      height: 130px;
+      width: 50%;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 15px;
     }
   }
 }

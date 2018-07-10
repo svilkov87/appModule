@@ -1,106 +1,61 @@
 'use strict';
 
-const slider      = document.getElementById( UISlider.sliderId );
-const sliderWidth = slider.offsetWidth;
-const sliderLists = document.querySelectorAll("#" + UISlider.sliderId + " > li");
-const sliderImg   = document.querySelectorAll("#" + UISlider.sliderId + " > li > img");
+var appModule = ( function() {
 
-function settings( element ) {
+    var summ       = 0;
+    var goods      = [];
+    var menubutton = document.getElementsByClassName('b-phone-screen__touch-menu')[0];
+    var menu       = document.getElementsByClassName('b-phone-screen__menu')[0];
+    var menuItems  = document.getElementsByClassName('b-phone-screen__list-item');
+    var article    = document.getElementsByClassName('b-phone-screen__content')[0];
 
-    const wrapper     = document.createElement('div');
-    const mainWrapper = document.createElement('div');
-    const pagerWrapper = document.createElement('div');
-    const prevArrow   = document.createElement('span');
-    const nextArrow   = document.createElement('span');
-    const parent      = element.parentNode;
+    return {
 
-    parent.insertBefore( wrapper, element );
-    wrapper.appendChild( element );
+        scrollSection: function(){
+            for (var i = 0; i < menuItems.length; i++) {
 
-    mainWrapper.className  = "b-ui-wrapper";
-    wrapper.className      = "b-ui-viewport";
-    pagerWrapper.className = "b-ui-pager-wrapper";
-    prevArrow.className    = "b-ui-prev";
-    nextArrow.className    = "b-ui-next";
+                menuItems[i].addEventListener('click', function(){
 
-    const parentWrapper = wrapper.parentNode;
-    const uiWrapper     = document.getElementsByClassName( 'b-ui-wrapper' )[0];
+                    article.classList.remove('b-phone-screen__content_active');
+                    menu.classList.remove('b-phone-screen__menu_active');
 
-    parentWrapper.insertBefore( mainWrapper, uiWrapper );
-    mainWrapper.appendChild( wrapper );
-    mainWrapper.appendChild( pagerWrapper );
+                    var sectionId = document.getElementById(this.getAttribute('data-list'));
+                    sectionId.scrollIntoView({ behavior: 'smooth', block: 'end' });
 
-    for (var i = 0; i < sliderImg.length; i++) {
+                });
 
-        pagerWrapper.innerHTML += '<div class="b-ui-pager" data-index-pager="'+ i +'"></div>';
-        sliderImg[i].setAttribute('data-index-slider', ''+ i + '');
+            }
+        },
+        activeMenu: function() {
 
-    }
-    if ( UISlider.arrows ) {
-        wrapper.appendChild( prevArrow );
-        wrapper.appendChild( nextArrow );
-    }
+            menubutton.addEventListener('click', function(){
+                article.classList.toggle('b-phone-screen__content_active');
+                menu.classList.toggle('b-phone-screen__menu_active');
+            });
 
-    let sliderWidthArray = [];
-    sliderWidthArray.push(sliderWidth);
-    sliderWidthArray = [sliderWidthArray.pop()];
+        },
+        addProduct: function( product ) {
+            summ += product.price;
+            goods.push( product );
+        },
+        printProduct: function () {
+            for (var i = 0; i < goods.length; i++) {
 
-    window.addEventListener('resize', function() {
+                console.log( goods[i].name, goods[i].price );
 
-        sliderWidthArray = [];
+            }
+        }
 
-        const elemWidth = slider.offsetWidth;
+    };
 
-        sliderWidthArray.push(elemWidth);
-        sliderWidthArray = [sliderWidthArray.pop()];
+}());
 
-    } );
+var salt = {
+    name: 'Salt',
+    price: '20'
+};
 
-
-    let nextClickcount = 0;
-    let prevClickcount = 0;
-    let arrowClickCount = 0;
-    let positionArray = [];
-
-    nextArrow.addEventListener('click', function () {
-
-        arrowClickCount++;
-
-        // if (arrowClickCount >= sliderImg.length) {
-        //     return false;
-        // } else {
-            positionArray.push(sliderWidthArray[0] * arrowClickCount)
-            positionArray = [positionArray.pop()];
-            slider.style.transform = 'translate3d(' + '-' + positionArray[0] + 'px, 0, 0)';
-        // }
-
-        // console.log(arrowClickCount);
-        // console.log(positionArray);
-
-    } );
-
-    prevArrow.addEventListener('click', function () {
-
-        arrowClickCount--;
-
-        // if (arrowClickCount >= sliderImg.length) {
-        //     return false;
-        // } else {
-            let slideLeft = (sliderWidthArray[0] * arrowClickCount);
-            slider.style.transform = 'translate3d(' + '-' + slideLeft + 'px, 0, 0)';
-        // }
-
-        // let longer = positionArray
-
-        console.log(arrowClickCount);
-        console.log(slideLeft);
-
-        // slider.style.transform = 'translate3d(' + sliderWidthArray[0] + 'px, 0, 0)';
-        // slider.style.transform = 'translate3d(' + positionArray[0] + '-930' + 'px, 0, 0)';
-
-    } );
-
-}
-
-settings( slider );
-
+appModule.addProduct(salt);
+appModule.printProduct();
+appModule.activeMenu();
+appModule.scrollSection();

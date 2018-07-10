@@ -2,41 +2,79 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>slider</title>
+	<title>Phone</title>
 	<meta name="description" content="cv" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="img/favicon_fd.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/libs.min.css">
 </head>
 <body>
-<div class="main-block">
-    <div class="container">
-        <ul id="ui_slider">
-            <li>
-                <img src="img/space_1.jpg" alt="">
-            </li>
-            <li>
-                <img src="img/space_2.jpg" alt="">
-            </li>
-            <li>
-                <img src="img/space_3.jpg" alt="">
-            </li>
-        </ul>
+    <div class="main-block">
+        <div class="container">
+            <div class="b-phone">
+                <div class="b-phone__header">
+                    <div class="b-phone__camera"></div>
+                    <div class="b-phone__speaker"></div>
+                </div>
+                <div class="b-phone-screen">
+                    <nav class="b-phone-screen__nav">
+                        <i class="b-phone-screen__cart fas fa-shopping-cart"></i>
+                        <i class="b-phone-screen__touch-menu fas fa-bars"></i>
+                    </nav>
+                    <div class="b-phone-screen__menu">
+                        <ui class="b-phone-screen__list">
+                            <li class="b-phone-screen__list-item" data-list="1">Catrgory 1</li>
+                            <li class="b-phone-screen__list-item" data-list="2">Category 2</li>
+                            <li class="b-phone-screen__list-item" data-list="3">Category 3</li>
+                        </ui>
+                    </div>
+                    <div class="b-phone-screen__content">
+                        <section class="b-phone-screen__section b-phone-screen__section_one" id="1">
+                            <strong>Section one</strong>
+                            <article class="b-phone-screen__article">
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                            </article>
+                        </section>
+                        <section class="b-phone-screen__section b-phone-screen__section_two" id="2">
+                            <strong>Section two</strong>
+                            <article class="b-phone-screen__article">
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                            </article>
+                        </section>
+                        <section class="b-phone-screen__section b-phone-screen__section_three" id="3">
+                            <strong>Section three</strong>
+                            <article class="b-phone-screen__article">
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                                <div class="b-phone-screen__product"></div>
+                            </article>
+                        </section>
+                    </div>
+                </div>
+                <div class="b-phone__footer">
+                    <div class="b-phone__footer-button"></div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<script>
-    var UISlider = {
-        sliderId : 'ui_slider',
-        arrows   : true,
-        auto     : true,
-        items    : true
-    };
-</script>
-<script src="libs/main-min.js"></script>
+    <script src="libs/main-min.js"></script>
 </body>
 </html>
