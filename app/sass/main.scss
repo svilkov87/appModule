@@ -136,6 +136,7 @@ body {
       right: 30px;
       line-height: 60px;
       cursor: pointer;
+      transition: $sec_default;
     }
     &__touch-menu_state_disabled {
       pointer-events: none;
