@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background: #454f7e;
   a {
     text-decoration: none !important;
   }
@@ -13,9 +14,9 @@ body {
   padding-top: 100px;
 }
 .b-phone {
-  width: 375px;
+  width: 390px;
   height: 750px;
-  border: 1px solid #ccc;
+  border: 5px solid #ccc;
   background: #fff;
   border-radius: 50px;
   margin: 0 auto;
@@ -77,14 +78,18 @@ body {
       margin-left: -11px;
     }
   }
+  &__wrapper {
+    margin: 0 10px;
+    border: 3px solid;
+  }
 
   .b-phone-screen {
     height: 560px;
     width: 100%;
     overflow: hidden;
     background-color: #fff;
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
+    border-top: 1px solid $items_bg;
+    border-bottom: 1px solid $items_bg;
     position: relative;
     &__nav {
       width: 100%;
@@ -97,17 +102,44 @@ body {
       left: 0;
       border-bottom: 1px solid #bbb;
     }
+    &__logo {
+      line-height: 60px;
+      padding-left: 15px;
+    }
     &__cart{
       position: absolute;
       right: 65px;
       line-height: 60px;
       cursor: pointer;
     }
+    &__total{
+      opacity: 0;
+      position: absolute;
+      background: #239be1;
+      top: 12px;
+      right: 95px;
+      cursor: pointer;
+      color: #fff;
+      width: 34px;
+      height: 34px;
+      padding-top: 10px;
+      text-align: center;
+      border-radius: 50%;
+      transition: $sec_default;
+    }
+    &__total-active{
+      opacity: 1;
+      right: 75px;
+    }
     &__touch-menu {
       position: absolute;
       right: 30px;
       line-height: 60px;
       cursor: pointer;
+    }
+    &__touch-menu_state_disabled {
+      pointer-events: none;
+      filter: opacity(25%);
     }
     &__menu {
       position: absolute;
@@ -132,21 +164,51 @@ body {
       text-align: right;
       cursor: pointer;
     }
-    &__content {
+    &__basket {
       height: 558px;
-      // height: 498px;
-      // overflow: auto;
-      overflow: overlay;
+      width: 100%;
+      position: absolute;
       padding-top: 60px;
-      // margin-top: 60px;
       padding-left: 15px;
       padding-right: 15px;
+      // display: flex;
+      // flex-direction: column-reverse;
+      transition: $sec_default;
+      transform: translateX(-100%);
+    }
+    &__basket-active {
+      transform: translateX(0);
+    }
+    &__basket-total {
+      padding: 10px 0;
+      margin-top: 10px;
+    }
+    &__basket-price {
+      margin-top: 15px;
+      color: red;
+      &:before {
+        content: 'Total: ';
+      }
+      &:after {
+        content: '$';
+      }
+    }
+    &__content {
+      height: 558px;
+      overflow: overlay;
+      padding-top: 60px;
+      padding-left: 15px;
+      padding-right: 15px;
+      transform: translateX(0);
       transition: $sec_default;
     }
     &__content_active {
       background: #ccc;
       height: 100%;
       filter: brightness(60%);
+    }
+    &__content-move {
+      transform: translateX(100%);
     }
     &__section {
       padding-top: 15px;
@@ -159,12 +221,54 @@ body {
     }
     &__product {
       outline: 1px solid #ccc;
+      background: #eee;
       height: 130px;
       width: 50%;
       padding-left: 15px;
       padding-right: 15px;
       margin-bottom: 15px;
+      cursor: pointer;
+      transition: $sec_default;
+      &:hover {
+        background: #bbb;
+      }
+    }
+    &__product-title {
+      padding: 15px 0;
+      display: inline-block;
     }
   }
+}
+
+::-webkit-scrollbar-button {
+  width: 5px;
+  height: 0px
+}
+
+/* Цвет дорожки, по которой двигается бегунок прокрутки. */
+::-webkit-scrollbar-track {
+  background-color: #ecedee
+}
+
+/* Цвет бегунка полосы, а так же его закругление. */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  // background-color: #6dc0c8;
+  background-color: #ccc;
+}
+
+/* Цвет бегунка при наведении на него курсора. */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #56999f;
+}
+
+/* Основная ширина полосы прокрутки. */
+::-webkit-resizer {
+  width: 4px;
+  height: 0px
+}
+::-webkit-scrollbar {
+  width: 4px;
 }
 
